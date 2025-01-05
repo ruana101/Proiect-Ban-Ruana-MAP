@@ -44,6 +44,26 @@ void preordine(Nod* crt_nod)
     preordine(crt_nod->dr);
 }
 
+void inordine(Nod* crt_nod)
+{
+    if(crt_nod==NULL)
+        return;
+
+    inordine(crt_nod->st);
+    printf("%d",crt_nod->cheie);
+    inordine(crt_nod->dr);
+}
+
+void postordine(Nod* crt_nod)
+{
+    if(crt_nod==NULL)
+        return;
+
+    postordine(crt_nod->st);
+    postordine(crt_nod->dr);
+    printf("%d",crt_nod->cheie);
+}
+
 
 int main()
 {
@@ -59,6 +79,14 @@ int main()
 
     printf("Traversare in pre-ordine: ");
     preordine(radacina);
+    printf("\n");
+
+    printf("Traversare in in-ordine: ");
+    inordine(radacina);
+    printf("\n");
+
+    printf("Traversare in post-ordine: ");
+    postordine(radacina);
     printf("\n");
     
     return 0;
