@@ -39,7 +39,7 @@ void preordine(Nod* crt_nod)
     if(crt_nod==NULL)
         return;
 
-    printf("%d",crt_nod->cheie);
+    printf("%d ",crt_nod->cheie);
     preordine(crt_nod->st);
     preordine(crt_nod->dr);
 }
@@ -50,7 +50,7 @@ void inordine(Nod* crt_nod)
         return;
 
     inordine(crt_nod->st);
-    printf("%d",crt_nod->cheie);
+    printf("%d ",crt_nod->cheie);
     inordine(crt_nod->dr);
 }
 
@@ -61,9 +61,45 @@ void postordine(Nod* crt_nod)
 
     postordine(crt_nod->st);
     postordine(crt_nod->dr);
-    printf("%d",crt_nod->cheie);
+    printf("%d ",crt_nod->cheie);
 }
 
+void nivelulCurent(Nod* nod, int nivel)
+{
+    if(nod==NULL)
+        return;
+    
+    if(nivel==1)
+        printf("%d ",nod->cheie);
+    else if(nivel>1)
+    {
+        nivelulCurent(nod->st,nivel-1);
+        nivelulCurent(nod->dr,nivel-1);
+    }
+}
+
+int inaltime(Nod* nod)
+{
+    if(nod==NULL)
+        return 0;
+    else
+    {
+        int inaltime_st = inaltime(nod->st);
+        int inaltime_dr = inaltime(nod->dr);
+        if(inaltime_st>inaltime_dr)
+            return (inaltime_st+1);
+        else
+            return (inaltime_dr+1);
+    }
+}
+
+void nivel(Nod*nod)
+{
+    int h=inaltime(nod);
+    
+    for(int i=1;i<=h;i++)
+    nivelulCurent(nod,i);
+}
 
 int main()
 {
@@ -88,6 +124,9 @@ int main()
     printf("Traversare in post-ordine: ");
     postordine(radacina);
     printf("\n");
+
+    printf("Traversarea pe nivel: ");
+    nivel(radacina);
     
     return 0;
 }
