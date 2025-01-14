@@ -1,0 +1,30 @@
+stages:
+  - build
+  - test
+  - deploy
+
+build:
+  stage: build
+  image: gcc:latest
+  script:
+    - gcc -o myapp myapp.c  
+    - ./myapp                  
+  only:
+    - main
+
+test:
+  stage: test
+  image: gcc:latest
+  script:
+    - gcc -o myapp myapp.c       
+    - ./myapp                      
+  only:
+    - main
+
+
+deploy:
+  stage: deploy
+  script:
+    - docker run -d --name myapp-c-container myapp-c  
+  only:
+    - main
