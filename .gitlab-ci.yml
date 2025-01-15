@@ -17,7 +17,6 @@
 #  after_script:
 #    - docker logout ${CI_REGISTRY}
 #  stage: build
-
 test-user:
   script:
     - echo "User: $GITLAB_USER_LOGIN"
