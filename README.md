@@ -37,7 +37,7 @@ Următoarele platforme au fost utilizate pentru dezvoltarea acestui proiect, imp
      
 - **Compilator GCC**:
     - Instalare pe Linux: `sudo apt install gcc`
-    - Instalare pe Windows: utilizează [Apasa aici pentru instalare MinGW](https://sourceforge.net/projects/mingw/).
+    - Instalare pe Windows: [Apasa aici pentru instalare MinGW](https://sourceforge.net/projects/mingw/).
 - Sistem de operare compatibil: Windows, Linux sau macOS.
 
 2. Descarcă proiectul
