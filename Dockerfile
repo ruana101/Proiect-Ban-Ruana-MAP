@@ -1,5 +1,6 @@
 FROM gcc:latest
 
+RUN mkdir -p /usr/src/myapp
 
 WORKDIR /myapp
 
