@@ -1,5 +1,6 @@
 FROM gcc:latest
 
+
 WORKDIR /myapp
 
 COPY . /myapp
