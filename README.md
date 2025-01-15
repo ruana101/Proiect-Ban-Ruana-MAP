@@ -59,4 +59,4 @@ Deschide folderul proiectului în Visual Studio Code.
 ## Rezultate
 La rularea proiectului se inserează 8 noduri în mod aleatoriu într-un arbore binar ordonat și se afișează traversarile prezentate mai sus. 
 
-![Imagine](../proiect-sincretic-2024/program.png)
+![Imagine](./imagini/program.png)
