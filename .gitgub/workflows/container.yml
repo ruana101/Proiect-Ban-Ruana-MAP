@@ -25,7 +25,9 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}  # Token-ul pentru autentificare
 
     - name: Build the Docker image
+    
       id: docker_build
+      
       env:
         IMAGE_NAME: ghcr.io/${{ github.repository }}/proiect-bst  # Numele imaginii
       run: |
