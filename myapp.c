@@ -4,6 +4,7 @@ aleatorii. Să se afișeze elementele în urmă traversării arborelui în „pr
 */
 #include<stdio.h>
 #include<stdlib.h>
+#include<time.h>
 
 typedef struct Nod{
     int cheie;
@@ -26,10 +27,10 @@ Nod* inserare(Nod* crt_nod, int cheie)
     if(crt_nod==NULL)
         return initializare(cheie);
     
-    if(cheie>=crt_nod->cheie)
-        crt_nod->dr=inserare(crt_nod->dr,cheie);
-    else 
+    if(cheie<crt_nod->cheie)
         crt_nod->st=inserare(crt_nod->st,cheie);
+    else 
+        crt_nod->dr=inserare(crt_nod->dr,cheie);
     
     return crt_nod;
 }
@@ -103,15 +104,14 @@ void nivel(Nod*nod)
 
 int main()
 {
-    Nod* radacina=initializare(5);
-    inserare(radacina,3);
-    inserare(radacina,8);
-    inserare(radacina,2);
-    inserare(radacina,4);
-    inserare(radacina,1);
-    inserare(radacina,7);
-    inserare(radacina,9);
-    inserare(radacina,6);
+    srand(time(NULL));
+
+    Nod* radacina=initializare(rand() % 100 + 1); 
+    
+    for(int i = 0; i < 6; i++)
+    {
+        inserare(radacina, rand() % 100 + 1);  
+    }
 
     printf("Traversare in pre-ordine: ");
     preordine(radacina);
@@ -125,7 +125,7 @@ int main()
     postordine(radacina);
     printf("\n");
 
-    printf("Traversarea pe nivel: ");
+    printf("Traversare pe nivel: ");
     nivel(radacina);
     
     return 0;

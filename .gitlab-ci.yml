@@ -1,26 +1,19 @@
-#image: docker:stable
+image: docker:stable
 
-#services:
-#  - docker:dind
+services:
+  - docker:dind
 
-#before_script:
-# - docker info
+before_script:
+ - docker info
 
-#build:
-#  only:
-#    - main
-#  before_script:
-#    - docker login registry.gitlab.com -u ${CI_REGISTRY_USER} -p ${CI_REGISTRY_PASSWORD}
-#  script:    
-#    - docker build -t ${CI_REGISTRY_IMAGE}:latest .    
-#    - docker push ${CI_REGISTRY_IMAGE}:latest    
-#  after_script:
-#    - docker logout ${CI_REGISTRY}
-#  stage: build
-test-user:
-  script:
-    - echo "User: $GITLAB_USER_LOGIN"
-
-test-password:
-  script:
-    - echo "Token: $CI_JOB_TOKEN"
+build:
+  only:
+    - main
+  before_script:
+    - docker login registry.gitlab.com -u ruana-nadalia.ban -p 3j9828DutEyz_oupiuzs
+  script:    
+    - docker build -t ${CI_REGISTRY_IMAGE}:latest .    
+    - docker push ${CI_REGISTRY_IMAGE}:latest    
+  after_script:
+    - docker logout ${CI_REGISTRY}
+  stage: build
