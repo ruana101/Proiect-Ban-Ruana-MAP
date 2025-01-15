@@ -26,7 +26,7 @@ out/
 *.user
 *.opt
 *.plg
-*.png
+#*.png
 
 # Fișiere generate de sistem
 .DS_Store
