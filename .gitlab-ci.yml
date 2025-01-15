@@ -1,30 +1,27 @@
-stages:
-  - build
-  - test
-  - deploy
+#image: docker:stable
 
-build:
-  stage: build
-  image: gcc:latest
+#services:
+#  - docker:dind
+
+#before_script:
+# - docker info
+
+#build:
+#  only:
+#    - main
+#  before_script:
+#    - docker login registry.gitlab.com -u ${CI_REGISTRY_USER} -p ${CI_REGISTRY_PASSWORD}
+#  script:    
+#    - docker build -t ${CI_REGISTRY_IMAGE}:latest .    
+#    - docker push ${CI_REGISTRY_IMAGE}:latest    
+#  after_script:
+#    - docker logout ${CI_REGISTRY}
+#  stage: build
+
+test-user:
   script:
-    - gcc -o myapp myapp.c  
-    - ./myapp                  
-  only:
-    - main
+    - echo "User: $GITLAB_USER_LOGIN"
 
-test:
-  stage: test
-  image: gcc:latest
+test-password:
   script:
-    - gcc -o myapp myapp.c       
-    - ./myapp                      
-  only:
-    - main
-
-
-deploy:
-  stage: deploy
-  script:
-    - docker run -d --name myapp-c-container myapp-c  
-  only:
-    - main
+    - echo "Token: $CI_JOB_TOKEN"

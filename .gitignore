@@ -1,0 +1,35 @@
+# Fișiere generate de compilator
+*.obj
+*.o
+*.exe
+*.pdb
+*.ilk
+*.lib
+*.exp
+
+# Foldere și fișiere de build
+build/
+bin/
+Debug/
+Release/
+out/
+
+# Fișiere temporare
+*.tmp
+*.log
+
+# Fișiere ale editorului/IDE-ului
+.vscode/
+*.code-workspace
+*.suo
+*.ncb
+*.user
+*.opt
+*.plg
+
+# Fișiere generate de sistem
+.DS_Store
+Thumbs.db
+desktop.ini
+
+
