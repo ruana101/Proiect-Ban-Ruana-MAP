@@ -108,7 +108,7 @@ int main()
 
     Nod* radacina=initializare(rand() % 100 + 1); 
     
-    for(int i = 0; i < 6; i++)
+    for(int i = 0; i < 7; i++)
     {
         inserare(radacina, rand() % 100 + 1);  
     }
